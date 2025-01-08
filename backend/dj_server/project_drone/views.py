@@ -12,7 +12,7 @@ def drone(request):
     query_params = request.GET.dict()  # 转换为字典
     specific_param = request.GET.get('text')  # 获取特定参数，提供默认值
     # print(specific_param)
-    uploaded_file = request.FILES.get("img")# 获取上传的文件对象
+    uploaded_file = request.FILES.get("img")# 获取上传的文件对象                                                     
     # print(uploaded_file)
     fs=FileSystemStorage()
     fname=fs.save(uploaded_file.name,uploaded_file)
