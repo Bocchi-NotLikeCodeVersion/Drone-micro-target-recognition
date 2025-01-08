@@ -7,3 +7,4 @@ class Ailogs(models.Model):
     aitype = models.SmallIntegerField(default=1) # 业务类型 cnn 1 yolo 2 gan 3
     result = models.TextField(null=True, default=None) # 结果
     dtime = models.DateTimeField(auto_now_add=True) # 创建时间
+    
