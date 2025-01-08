@@ -53,7 +53,7 @@
 		textlist.value.push({ text: input_text.value, autor: "client" ,type:"text"})
 		let save_input_text = input_text.value
 		uni.request({
-			url: 'http://127.0.0.1:8000/myproject/index/', // 仅为示例，并非真实接口地址
+			url: 'http://127.0.0.1:8000/dj_server/', // 仅为示例，并非真实接口地址
 			method: "GET",
 			data: { // 文本数据被放入请求头中
 				text: save_input_text
@@ -78,12 +78,12 @@
 				textlist.value.push({ image: filePath, autor: "client" ,type:"image"})
 				// 上传图片
 				uni.uploadFile({
-					url: 'http://127.0.0.1:8000/myproject/index2/', // 服务器接收文件的地址
+					url: 'http://127.0.0.1:8000/dj_server/drone/', // 服务器接收文件的地址
 					filePath: filePath, // 要上传文件资源的路径
 					name: 'img', // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件数据
 					success: (res) => {
 						let server_resp = JSON.parse(res.data).image_url
-						let server_resp2 = 'http://127.0.0.1:8000/myproject'+server_resp
+						let server_resp2 = 'http://127.0.0.1:8000/dj_server'+server_resp
 						console.log(server_resp2)
 						textlist.value.push({ image: server_resp2, autor: "server",type:"image" })
 						nextTick(() => {
