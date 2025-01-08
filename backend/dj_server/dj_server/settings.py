@@ -79,9 +79,9 @@ WSGI_APPLICATION = "dj_server.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 使用MySQL数据库引擎
-        'NAME': 'django1',          # 你的数据库名称
+        'NAME': 'ai2409',          # 你的数据库名称
         'USER': 'root',             # 你的MySQL用户名
-        'PASSWORD': '2571160029',     # 你的MySQL密码
+        'PASSWORD': 'root',     # 你的MySQL密码
         'HOST': 'localhost',                   # 数据库主机地址，本地主机为localhost
         'PORT': '3306',                        # MySQL服务端口，默认为3306
     }
