@@ -43,9 +43,16 @@
 		<image src="../../static/chat/video.png" @click="chooseVideo" mode=""></image>
 		<image src="../../static/chat/加号.png" mode=""></image>
 	</view>
+	
+	<picker class="aitypechoose" mode="selector" :range="options" @change="onSelect">
+		<view class="aitype">{{selectedOption}}</view>
+	</picker>
 </template>
 <script setup>
 	import {ref,nextTick} from "vue"
+	const options = ['目标检测∨', 'CNN∨']
+	let index=ref(0)
+	let selectedOption=options[index.value]
 	let y=ref(99999)
 	let server_message=""
 	let client_message=""
@@ -81,6 +88,7 @@
 		input_text.value=""
 	}
 	let img_send=()=> {
+		let type=index.value?"CNN":"OBJ"
 		// 选择图片
 		uni.chooseImage({
 			count: 1, // 允许选择的图片数量
@@ -93,6 +101,8 @@
 					url: 'http://127.0.0.1:8000/project_drone/drone_image/', // 服务器接收文件的地址
 					filePath: filePath, // 要上传文件资源的路径
 					name: 'img', // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件数据
+					formData:{aitype:type},
+					
 					success: (res) => {
 						let server_resp = JSON.parse(res.data).image_url
 						let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
@@ -166,9 +176,30 @@
 	      let videoDuration = event.detail.duration
 	      console.log('视频时长:',videoDuration);
 	    }
+	let onSelect=(event)=>{
+		index.value = event.detail.value
+		// console.log(index)
+		// console.log(event.detail.value)
+		selectedOption = options[index.value]
+	}
 </script>
 
 <style>
+	.aitypechoose{
+		position: fixed;
+		top: 71rpx; /* 距离顶部10px */
+		left: 50%;
+		transform: translateX(-50%); /* 使其居中 */
+		z-index: 1000; /* 保证选择框在最前面 */
+		background-color: white; /* 可以自定义背景 */
+		padding: 10rpx;
+		border-radius: 8rpx;
+		box-shadow: 0 4rpx 6rpx rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+	}
+	.aitype{
+		text-align: center;
+		font-size: 40rpx;
+	}
 	.chatbox {
 		height: 1000rpx;
 		width: 750rpx;
