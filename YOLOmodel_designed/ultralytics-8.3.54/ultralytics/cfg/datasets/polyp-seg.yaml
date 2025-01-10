@@ -1,0 +1,11 @@
+path: ../datasets # dataset root dir
+train: train # train images (relative to 'path') 1920 images
+val: val # val images (relative to 'path') 89 images
+ # test images (relative to 'path') 188 images
+
+# Classes
+names:
+  0: polyp
+
+# Download script/URL (optional)
+# download: https://github.com/ultralytics/assets/releases/download/v0.0.0/package-seg.zip
