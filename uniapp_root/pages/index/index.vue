@@ -104,11 +104,11 @@
 					formData:{aitype:type},
 					
 					success: (res) => {
+						console.log(88888, res)
 						let server_resp = JSON.parse(res.data).image_url
-						let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
-						console.log(server_resp2)
+						// let server_resp2 = 'http://127.0.0.1:8000/project_drone/'+server_resp
 						textlist.value.push({ text: "生成结果中......", autor: "server",type:"text" })
-						textlist.value.push({ image: server_resp2, autor: "server",type:"image" })
+						textlist.value.push({ image: "http://127.0.0.1:8000/" + server_resp, autor: "server",type:"image" })
 						nextTick(() => {
 							y.value += 1
 						})
@@ -157,6 +157,7 @@
 		  success: (res) => {
 			// console.log('上传成功:', res);
 			// 通常服务器会返回一些数据，比如文件ID或URL
+			
 			let server_resp = JSON.parse(res.data).video_url
 			let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
 			console.log(server_resp2)
