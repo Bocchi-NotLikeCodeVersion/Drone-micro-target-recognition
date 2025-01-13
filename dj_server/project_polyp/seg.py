@@ -26,7 +26,7 @@ class PolypDetection:
         # 设置默认模型路径
         if model_path is None:
             base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            model_path = os.path.join(base_dir,'project_drone' , 'model', 'best.onnx')
+            model_path = os.path.join(base_dir,'project_polyp' , 'model', 'best.onnx')
         
         # 打印绝对路径以进行调试
         print(f"Model path: {os.path.abspath(model_path)}")

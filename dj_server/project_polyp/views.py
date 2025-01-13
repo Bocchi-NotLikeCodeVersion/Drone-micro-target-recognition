@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from django.http import HttpResponse,JsonResponse
 from django.core.files.storage import FileSystemStorage
-from project_drone.models import Ailogs
-from project_drone.seg import PolypDetection
+from project_polyp.models import Ailogs
+from project_polyp.seg import PolypDetection
 import datetime
 import os
 # Create your views here.

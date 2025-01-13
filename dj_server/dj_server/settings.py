@@ -32,7 +32,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 INSTALLED_APPS = [
     'corsheaders',
-    "project_drone.apps.ProjectDroneConfig",
+    "project_polyp.apps.ProjectDroneConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

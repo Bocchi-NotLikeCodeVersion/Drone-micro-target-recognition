@@ -98,7 +98,7 @@
 				textlist.value.push({ image: filePath, autor: "client" ,type:"image"})
 				// 上传图片
 				uni.uploadFile({
-					url: 'http://127.0.0.1:8000/project_drone/drone_image/', // 服务器接收文件的地址
+					url: 'http://127.0.0.1:8000/project_polyp/drone_image/', // 服务器接收文件的地址
 					filePath: filePath, // 要上传文件资源的路径
 					name: 'img', // 文件对应的 key，开发者在服务端可以通过这个 key 获取文件数据
 					formData:{aitype:type},
@@ -106,7 +106,7 @@
 					success: (res) => {
 						console.log(88888, res)
 						let server_resp = JSON.parse(res.data).image_url
-						let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
+						let server_resp2 = 'http://127.0.0.1:8000/project_polyp'+server_resp
 						console.log(server_resp2)
 						// 显示正在生成结果的消息
 						uni.showToast({
@@ -156,7 +156,7 @@
 		});
 	  }
 	let uploadVideo=(filePath)=> {
-		const uploadUrl = 'http://127.0.0.1:8000/project_drone/drone_video/'; // 替换为你的服务器上传接口
+		const uploadUrl = 'http://127.0.0.1:8000/project_polyp/drone_video/'; // 替换为你的服务器上传接口
 		uni.uploadFile({
 		  url: uploadUrl,
 		  filePath: filePath,
@@ -166,7 +166,7 @@
 			// 通常服务器会返回一些数据，比如文件ID或URL
 			
 			let server_resp = JSON.parse(res.data).video_url
-			let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
+			let server_resp2 = 'http://127.0.0.1:8000/project_polyp'+server_resp
 			console.log(server_resp2)
 			textlist.value.push({ text: "生成结果中......", autor: "server",type:"text" })
 			textlist.value.push({ video: server_resp2, autor: "server",type:"video" })
