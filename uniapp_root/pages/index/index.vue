@@ -97,7 +97,13 @@
 						let server_resp = JSON.parse(res.data).image_url
 						let server_resp2 = 'http://127.0.0.1:8000/project_drone'+server_resp
 						console.log(server_resp2)
-						textlist.value.push({ text: "生成结果中......", autor: "server",type:"text" })
+						// 显示正在生成结果的消息
+						uni.showToast({
+						  title: '生成结果中......',
+						  icon: 'loading',
+						  duration: 1000 // 持续时间（毫秒）
+						});
+						
 						textlist.value.push({ image: server_resp2, autor: "server",type:"image" })
 						nextTick(() => {
 							y.value += 1
