@@ -179,11 +179,11 @@
 		  }
 		});
 	  }
-	let onLoadedMetadata=(event)=> {
-	      // 视频元数据加载完成时触发
-	      let videoDuration = event.detail.duration
-	      console.log('视频时长:',videoDuration);
-	    }
+	// let onLoadedMetadata=(event)=> {
+	//       // 视频元数据加载完成时触发
+	//       let videoDuration = event.detail.duration
+	//       console.log('视频时长:',videoDuration);
+	//     }
 	let onSelect=(event)=>{
 		index.value = event.detail.value
 		// console.log(index)
