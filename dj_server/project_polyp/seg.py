@@ -290,7 +290,7 @@ class PolypDetection:
     @staticmethod
     def run_from_cli(file_path=None):
         parser = argparse.ArgumentParser(description="Process an image using PolypDetection.")
-        parser.add_argument("image_path", type=str, nargs='?', default="../../media/24.png",
+        parser.add_argument("image_path", type=str, nargs='?', default="../media/24.png",
                             help="Path to the input image. If not provided, a default image will be used.")
         
         args = parser.parse_args()
@@ -305,7 +305,7 @@ class PolypDetection:
             return None, {"error": str(e)}
 
 if __name__ == "__main__":
-    img_path = "./media/24.png"  # 或者从命令行参数获取
+    img_path = "../media/24.png"  # 或者从命令行参数获取
     output_img_path, js_data = PolypDetection.run_from_cli(img_path)
     
    
