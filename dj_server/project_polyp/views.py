@@ -5,6 +5,7 @@ from django.http import HttpResponse,JsonResponse
 from django.core.files.storage import FileSystemStorage
 from project_polyp.models import Ailogs
 from project_polyp.seg import PolypDetection
+from project_polyp.videoseg import video_seg
 import datetime
 import os
 # Create your views here.
@@ -47,5 +48,10 @@ def drone_video(request):
     fs=FileSystemStorage()
     fname=fs.save(uploaded_file.name,uploaded_file)
     file_url = fs.url(fname)
+    # print(file_url)
+    res_path=video_seg(file_url,"res.mp4")
+    # print(res_path)
+    # print("--------",os.path.join('media',os.path.basename(res_path)))
+    os.rename(res_path,os.path.join('media',os.path.basename(res_path)))
     
     return JsonResponse({'video_url': file_url})

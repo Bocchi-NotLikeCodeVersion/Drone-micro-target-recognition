@@ -166,7 +166,7 @@
 			// 通常服务器会返回一些数据，比如文件ID或URL
 			
 			let server_resp = JSON.parse(res.data).video_url
-			let server_resp2 = 'http://127.0.0.1:8000/project_polyp'+server_resp
+			let server_resp2 = 'http://127.0.0.1:8000/project_polyp/media/res.mp4'
 			console.log(server_resp2)
 			textlist.value.push({ text: "生成结果中......", autor: "server",type:"text" })
 			textlist.value.push({ video: server_resp2, autor: "server",type:"video" })
